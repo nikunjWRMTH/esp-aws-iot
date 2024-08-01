@@ -25,6 +25,7 @@
 #include "aws_iot_error.h"
 #include "network_interface.h"
 #include "network_platform.h"
+#include "../../include/aws_iot_log.h"
 
 #include "mbedtls/esp_debug.h"
 
@@ -482,7 +483,7 @@ IoT_Error_t iot_tls_read(Network *pNetwork, unsigned char *pMsg, size_t len, Tim
 				}
 			}
 		} else {
-			IOT_ERROR("Failed\n  ! mbedtls_ssl_read returned -0x%x\n\n", (unsigned int) -ret);
+			// IOT_ERROR("Failed\n  ! mbedtls_ssl_read returned -0x%x\n\n", (unsigned int) -ret);
 			return NETWORK_SSL_READ_ERROR;
 		}
 	}
